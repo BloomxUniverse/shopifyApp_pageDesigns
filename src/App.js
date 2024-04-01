@@ -1,47 +1,38 @@
-import "./App.css";
-import Header from "./components/Header";
-import Titlebar from "./components/Titlebar";
-import Form from "./components/Form";
-import Sidetable from "./components/Sidetable";
-import Resultbox from "./components/Resultbox";
-import Footer from "./components/Footer";
-import { useSelector } from "react-redux";
-import { fetchInitialState } from "./store/designSlice";
-import store from "./store/index";
-import { useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import './App.css';
+import Form from './components/form/Form';
+import Header from './components/Header';
+import { useEffect } from 'react';
+import { fetchThemeSettings } from './features/themeSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import Result from './components/result/Result';
+
 
 function App() {
-  const data = useSelector((store) => store.design);
-  const dataView = useSelector((store) => store.result);
-
+  
+  const themeSetting = useSelector((state) => state.theme && state.theme.data && state.theme.data.design);
+  const resultDetailData = useSelector((state) => state.resultDetail && state.resultDetail.data);
+  const dispatch = useDispatch();
   useEffect(() => {
-    store.dispatch(fetchInitialState());
-  }, []);
-
+    dispatch(fetchThemeSettings (process.env.REACT_APP_THEME_API_URL));
+  }, [dispatch]);
   return (
-    <div className="row">
-      {data.data.design.header.enable && <Header></Header>}
-      {data.data.design.title.enable && <Titlebar></Titlebar>}
-      {(data.data.design.tableimage.enable && (
-        <div className="col-md-7 col-12 d-flex justify-content-center justify-content-md-end">
-          <Form></Form>
+    <>
+        <div className=' mx-auto'>
+         {themeSetting.header && themeSetting.header.enable && <Header/>}
+          <div className='relative'>
+          <img src='https://gemescalculatorfrontend.bloomxapi.in/design3/assets/bg3.jpg' className='absolute top-0 left-0 w-full h-full object-cover' alt='background'/>
+          {/* <div className='absolute top-0 left-0 bg-[#e1d5bc] w-full h-full'></div> */}
+            <div className={`grid gap-[15px] sm:w-[90%] md:w-[80%] w-[95%] mx-auto md:grid-cols-1' my-0 mt-[30px]`}>
+              <Form/>
+            </div>
+          </div>
+          {
+            resultDetailData &&  resultDetailData.resultview === true ? 
+            <Result/>
+              :''
+          }
         </div>
-      )) || (
-        <div className="col-md-11 col-12 d-flex justify-content-center justify-content-md-end">
-          <Form></Form>
-        </div>
-      )}
-
-      {data.data.design.tableimage.enable && (
-        <div className="col-md-5 col-12 d-flex justify-content-center justify-content-md-start">
-          <Sidetable></Sidetable>
-        </div>
-      )}
-      
-      { dataView.data.resultview && <Resultbox></Resultbox> }
-      {data.data.design.footer.enable && <Footer></Footer>}
-    </div>
+    </>
   );
 }
 
