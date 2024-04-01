@@ -1,0 +1,18 @@
+.titlebarText{
+    font-size: 36px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'Libre Baskerville', serif;
+}
+
+@media (max-width: 800px) {
+    .titlebarText {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 450px) {
+    .titlebarText {
+        font-size: 16px;
+    }
+}
