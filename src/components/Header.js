@@ -1,13 +1,12 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react'
+import { useSelector } from 'react-redux';
 
-const Header = () => {
-  const data = useSelector((store) => store.design);
+export default function Header() {
+      const themeSetting = useSelector((state) => state.theme.data.design);
+
   return (
-    <div className="col-12">
-      <img className="col-12" src={data.data.design.header.img} alt="banner"/>
+    <div className=' my-[30px] mx-auto'>
+        <img className='object-cover w-full' src={themeSetting.header.img} alt='top banner'/>
     </div>
-  );
-};
-
-export default Header;
+  )
+}
