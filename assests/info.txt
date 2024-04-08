@@ -1,0 +1,29 @@
+gemtool link for css js and root
+
+ <script defer="defer" src="https://gemescalculatorfrontend.bloomxapi.in/static/js/main.3ddc3403.js"></script>
+ <link href="https://gemescalculatorfrontend.bloomxapi.in/static/css/main.9f5b0e22.css" rel="stylesheet" />
+ <div id="root"></div>
+
+Shopify Partner Accoutn
+bloomxsolution@gmail.com
+wecandoit@111
+
+customer log server link:
+sit.bloomxapi.in/api/logs/gemsmantra.com/{filename}
+
+vishal guthub
+https://github.com/Vishal911136/gemsmantracal
+
+Shopify Partner Accoutn
+bloomxsolution@gmail.com
+wecandoit@111
+
+shopify
+infogemsmantra@gmail.com
+
+bloomxapi.in credentials
+sbhoomika151@gmail.com
+password- Pass@123
+
+img prefix
+https://gemescalculatorfrontend.bloomxapi.in/assets/1-mukhi-rudraksha.webp
